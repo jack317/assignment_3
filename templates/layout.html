@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+
+    <!-- hhttps://favicon.io/emoji-favicons/hot-dog/ -->
+    <link href="/static/favicon.ico" rel="icon">
+
+    <link href="/static/styles.css" rel="stylesheet">
+
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+
+    {% block head %}
+    {% endblock %}
+
+    <title>Joes Hotdogs Implemented with: {% block title %}{% endblock %}</title>
+
+</head>
+
+<body>
+    <div class="menu">
+        <label for="menu-items">Hot Dogs $4.00</label>
+        <input type="number" class="menu-items" id="hotdogs" value="0">
+        <label for="menu-items">Fries $3.50</label>
+        <input type="number" class="menu-items" id="fries" value="0">
+        <label for="menu-items">Soda $1.50</label>
+        <input type="number" class="menu-items" id="soda" value="0">
+        <label for="menu-items">Saurkraut $1.00</label>
+        <input type="number" class="menu-items" id="saurkraut" value="0">
+        <button type='button' id="order">Order</button>
+    </div>
+    <div>
+        <div id="customer-order" style="display: none">
+            <h3>Your Order:</h3>
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+                <tr>
+                    <td>Hot Dogs</td>
+                    <td>$4.00</td>
+                    <td id="hotdog-quantity"></td>
+                </tr>
+                <tr>
+                    <td>Fries</td>
+                    <td>$3.50</td>
+                    <td id="fries-quantity"></td>
+                </tr>
+                <tr>
+                    <td>Soda</td>
+                    <td>$1.50</td>
+                    <td id="soda-quantity"></td>
+                </tr>
+                <tr>
+                    <td>Saurkraut</td>
+                    <td>$1.00</td>
+                    <td id="saurkraut-quantity"></td>
+                </tr>
+            </table>
+        </div>
+        <h4 id="customer-total">
+        </h4>
+    </div>
+
+    {% block main %}{% endblock %}
+</body>
+
+</html>
