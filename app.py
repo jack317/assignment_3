@@ -21,3 +21,7 @@ def function():
 @app.route("/usingClass")
 def usingClass():
     return render_template("class.html")
+
+@app.route("/blackjack")
+def blackjack():
+    return render_template("blackjack.html")

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+
+    <!-- hhttps://favicon.io/emoji-favicons/hot-dog/ -->
+    <link href="/static/favicon.ico" rel="icon">
+
+    <link href="/static/styles.css" rel="stylesheet">
+
+    <script src="{{url_for('static', filename='blackjack.js')}}"></script>
+
+    <title>BlackJack</title>
+
+</head>
+
+<body class="blackjack">
+    <h3>Jack's BlackJack</h3>
+    <h2>Your Cards</h2>
+    <div id="player-card-area">
+        
+    </div>
+    <h2>Dealers Cards</h2>
+    <div id="dealer-card-area">
+        
+    </div>
+
+    <div class="board">
+        <button type="button" id="hit">Hit Me!</button>
+        <button type="button" id="stay">Stay</button>
+        <button type="button" id="restart">Restart</button>
+        <p id="error"></p>
+        <label for="bet-amount">Place Your Bet!</label>
+        <input type="number" class="bet" id="bets" value="0">
+        <button type="button" id="play">Play!</button>
+        <div id="bank"></div>
+        <p id="message"></p>
+
+    </div>
+</body>
+
+</html>
