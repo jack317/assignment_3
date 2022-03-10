@@ -116,6 +116,7 @@ function hands(deck) {
     return
 }
 
+// Renders the palyers cards
 function renderPlayerCards(playerHand) {
     var cardArea = document.getElementById("player-card-area");
     while (cardArea.firstChild){
@@ -149,6 +150,7 @@ function renderDealerCards(dealerHand) {
     }
 }
 
+// Check the Blackjack win condition after the deal
 function checkWinConditions(contestant) {
     if (contestant.Points > 21) {
         message.innerHTML = "BUSTED!";
@@ -164,6 +166,7 @@ function checkWinConditions(contestant) {
     return
 }
 
+// Give the player a card
 function hitPlayer(deck) {
     var new_card = deck.pop();
     player.Hand.push(new_card)
@@ -187,7 +190,7 @@ function dealerPlays(deck) {
             endGame();
             return
         } else if (checkWinConditions(dealer) === "busted") {
-            message.innHTML = "Player Wins!";
+            message.innerHTML = "Player Wins!";
             startingBank[0] = startingBank[0] + (bet * 2);
             bank.innerHTML = `$${startingBank[0]}`;
             endGame();
@@ -198,10 +201,12 @@ function dealerPlays(deck) {
     else if (dealer.Points > 16) {
         if (dealer.Points > player.Points) {
             message.innerHTML = "Dealer Wins";
+            endgame();
         } else {
-            message.innHTML = "Player Wins!";
+            message.innerHTML = "Player Wins!";
             startingBank[0] = startingBank[0] + (bet * 2);
             bank.innerHTML = `$${startingBank[0]}`;
+            endgame();
         }
     }
 }
@@ -214,5 +219,20 @@ function endGame() {
 }
 
 function restartGame() {
-    startGame();
+    var deck = new Array();
+    // Hide hit, stay, errors, and restart until the game has started
+    hit.style.display = "none";
+    stay.style.display = "none";
+    error.style.display = "none";
+    restart.style.display = "none";
+    message.innerHTML = "";
+    // clear card areas
+    var cardArea = document.getElementById("player-card-area");
+    while (cardArea.firstChild){
+        cardArea.removeChild(cardArea.firstChild);
+    }
+    var cardArea = document.getElementById("dealer-card-area");
+    while (cardArea.firstChild){
+        cardArea.removeChild(cardArea.firstChild);
+    }
 }
